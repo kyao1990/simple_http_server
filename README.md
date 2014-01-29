@@ -1,6 +1,6 @@
 simple_http_server
 ==================
-
+<pre>
 This is an team course project in course CS631 Advanced Programming in the UNIX Environment
 
 We using the git tools in our linux lab for collaborate developing.
@@ -78,6 +78,6 @@ HISTORY
     in the UNIX Environment at Stevens Institute of Technology. This variation was ﬁrst assigned in the
     Fall 2008 by Jan Schaumann.
 
-
+</pre>
   
 

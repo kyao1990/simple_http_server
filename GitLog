@@ -1,0 +1,1441 @@
+commit 0c32ad62969d1f84c558c5dd69166e803df3b045
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Mon Dec 16 05:01:36 2013 -0500
+
+    fixed compiler warning "http.c:208:11: warning: array subscript has type 'char'" when compiling on NetBSD
+
+commit bbf918ce5558a9bfb5271249696b8b0d2c3993e9
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Mon Dec 16 04:43:06 2013 -0500
+
+    modified archiving script for new Makefile names
+
+commit 0f88f0f2526f55ee6f0771d4c92ffac823cbe04e
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Mon Dec 16 04:32:32 2013 -0500
+
+    renamed all Makefiles and changed description on building the code on README file
+
+commit 44dcccc43a1ccb89d59aeda50c33074ad6a9eea6
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Mon Dec 16 00:58:00 2013 -0500
+
+    re-formatted code to follow style guide
+    
+    	modified:   http.c
+
+commit c2d9b59544940f6fd35bb4f5131280f47df1f286
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sun Dec 15 23:57:08 2013 -0500
+
+    added a simple hello world CGI test script
+    
+    	new file:   helloworld_simple.c
+
+commit 5c45d2a300f9d6280451db15ec92eec6bd31249e
+Merge: 2e89a27 93c776f
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sun Dec 15 18:53:36 2013 -0500
+
+    Merge branch 'master' of linux-lab.cs.stevens.edu:/home/ffoerg/git/sws
+
+commit 2e89a27cdcdac7951c0bd1ccb2ec8de17a137500
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sun Dec 15 18:53:13 2013 -0500
+
+    updated archiving script
+
+commit 93c776ff1fe8afedd41598fa6aa27ad2353e25b6
+Merge: 1e6a986 50523c4
+Author: Luis <lbustama@stevens.edu>
+Date:   Sun Dec 15 18:36:50 2013 -0500
+
+    Merge branch 'master' of linux-lab.cs.stevens.edu:~ffoerg/git/sws
+    
+    # Please enter a commit message to explain why this merge is necessary,
+    # especially if it merges an updated upstream into a topic branch.
+    #
+    # Lines starting with '#' will be ignored, and an empty message aborts
+    # the commit.
+
+commit 1e6a98698eb2b443d2476798388e36fcf153ed63
+Author: Luis <lbustama@stevens.edu>
+Date:   Sun Dec 15 18:34:58 2013 -0500
+
+     Fixed issue with omniosmakefile resulting in the following issue ld.so.1: sws: fatal: libmagic.so.1: open failed: No such file or directory
+
+commit 50523c4d67773adf10629fe3c3756d4ac7e1a9cf
+Merge: 9fb22d6 2ab3363
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Sun Dec 15 00:39:10 2013 -0500
+
+    Merge branch 'master' of /home/ffoerg/git/sws
+
+commit 9fb22d67c1b14e3bdb7c3c6c88af321a6a568580
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Sun Dec 15 00:39:05 2013 -0500
+
+    Made changes to handle POST request when the CGI flag has not been provided at startup or when the target is not a CGI script
+
+commit 2ab3363bb837c6ac867cf4a8b1fe5af2ac0695bd
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Dec 14 23:31:22 2013 -0500
+
+    adapted logging format to follow http://httpd.apache.org/docs/1.3/logs.html#common
+      and man page
+    decreased logging struct size significantly
+    use strncpy and snprintf rather than strcpy and sprintf
+    
+    	modified:   http.c
+    	modified:   util.c
+    	modified:   util.h
+
+commit 9d631c38b589ffb79e6efb800087f5abb9bf4056
+Merge: 4d53207 41a1bbd
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Sat Dec 14 22:33:43 2013 -0500
+
+    Merge branch 'master' of /home/ffoerg/git/sws
+
+commit 4d53207351980dd03fa1d4f0e48f473a30302019
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Sat Dec 14 22:33:32 2013 -0500
+
+    added support for custom messages on the send_generic_page function):
+
+commit 41a1bbdd892e6a7318e011bf29dbea4a7f6aa239
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Dec 14 22:22:39 2013 -0500
+
+    commented code
+    
+    	modified:   http.c
+
+commit 6d142b3ddd60b21efa92ea67594fa59d27c5443d
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Dec 14 21:54:22 2013 -0500
+
+    Added another test case for If-Modified-Since header
+    Respond with Last-Modified header, even if Last-Modified <= If-Modified-Since
+    
+    	modified:   http.c
+    	modified:   ../tests/testcases
+
+commit bc5470c053dfb727d9ef665e5dbd2f8d3744286b
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Dec 14 20:51:00 2013 -0500
+
+    fixed handling of content-length and content-type whenever generic
+    error page is to be displayed.
+    
+    	modified:   http.c
+    	modified:   http.h
+
+commit 89ae8e6d281d8235a1a1858c178ea13d1c99898c
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Dec 14 19:04:12 2013 -0500
+
+    added support for If-Modified-Since header:
+      only deliver file if mtime > If-Modified-Since
+    
+    	modified:   http.c
+    	modified:   util.c
+    	modified:   util.h
+
+commit 0c031176da6ac9ceb798da03227a8344c8b24f80
+Author: kyao <kyao@stevens.edu>
+Date:   Sat Dec 14 15:20:54 2013 -0500
+
+    Add POST part
+
+commit c92fdd8731a1c9bb833ccb555372d2cdbe06d270
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Dec 14 14:48:13 2013 -0500
+
+    added comment about address logging
+    
+    	modified:   README
+
+commit 449cedb54b49fd75149ea9b97b6954a110fa3bdb
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Dec 14 14:40:44 2013 -0500
+
+    init more IPv6 parameters
+    
+    	modified:   net.c
+
+commit f917df7457fe1aa5e87920aa80498403bbc05c8d
+Merge: 9e4d604 e864128
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Dec 14 14:03:10 2013 -0500
+
+    Merge branch 'master' of linux-lab.cs.stevens.edu:/home/ffoerg/git/sws
+
+commit 9e4d6041114a250fbd3c4ead9bb67e7a2a4d7b9f
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Dec 14 14:02:38 2013 -0500
+
+    added alphanumeric sorting for directory indexing
+    
+    	modified:   http.c
+
+commit e864128d1ef7c278f42c2b715092669f29c57a2f
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Sat Dec 14 13:51:27 2013 -0500
+
+    - Remove printfs from http.c that were used for debugging. -d flag just routes logging to stdout.
+    - We shouldn't be outputing anything but the log based on the sws(1) man page
+
+commit cde62b6d79d749d59eeac385d810c6f0977884db
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Dec 14 13:31:27 2013 -0500
+
+    Do not list directory entries that start with '.'
+    
+    	modified:   http.c
+
+commit 2d4cf2d660dfcb3c3675d1a193ea9b526d4229c7
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Dec 14 13:23:39 2013 -0500
+
+    removed obsolete debugging code
+    
+    	modified:   net.c
+
+commit 1b586927ebd1d4d12af4a0545e1869233fdbe68d
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Dec 14 13:15:53 2013 -0500
+
+    distinguish between IPv4 and IPv6 clients when building client IP string
+    
+    	modified:   net.c
+
+commit fd4fddb721f601f7af3ab53cfc93c3b85f0b83de
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Dec 14 12:24:28 2013 -0500
+
+    removed obsolete comment
+    
+    	modified:   README
+
+commit 8422c98d122a1f47247b84cbe111f797c55719d5
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Dec 14 12:18:17 2013 -0500
+
+    replaced another buffer size magic constant
+    
+    	modified:   http.c
+
+commit 80d25403c1e443e91aa4c352ed8c20d0086472b9
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Dec 14 12:07:06 2013 -0500
+
+    replaced magic CGI prefix string length with macro
+    
+    	modified:   http.c
+
+commit d6e7a2ebdf5d6e1bda818efe73ddedefa663879b
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Dec 14 12:01:10 2013 -0500
+
+    removed hard-coded buffer size repetition:
+      use sizeof(.) instead to be able to change buffer size with a single
+      change
+    
+    	modified:   http.c
+
+commit 1b53261f592017bc35257486ebafdeeb28643b17
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Dec 14 11:54:24 2013 -0500
+
+    replaced "index.html" string with a macro
+    
+    	modified:   http.c
+
+commit 73129ed0cceafcd29e32fc5d71543d69031ce647
+Merge: c77716a b29793b
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Dec 14 11:39:27 2013 -0500
+
+    Merge branch 'master' of linux-lab.cs.stevens.edu:/home/ffoerg/git/sws
+
+commit c77716ad14808b9d9e874c76ff6409704d7b7568
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Dec 14 11:38:31 2013 -0500
+
+    Log IP address
+    
+    	modified:   http.c
+    	modified:   http.h
+    	modified:   net.c
+
+commit b29793b8132338888ef673693c326536b42f4e3f
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Sat Dec 14 11:37:35 2013 -0500
+
+    - Fix CGI execute so it occurs after  code response and not before (http.c)
+
+commit 59a1c292e86cc55593f527487aa605a4704203b8
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Sat Dec 14 11:30:02 2013 -0500
+
+    - Updated logging code so fd is opened and closed only once by main instead of in httpd for each connection (http.c, main.c, util.c, util.h)
+    - This also stops program from executing daemon and progressing if there's a log file error
+
+commit 5a529ab2d3a911555f1ed5cfbd8968c1b04b8d8f
+Author: kyao <kyao@stevens.edu>
+Date:   Fri Dec 13 16:08:26 2013 -0500
+
+    Fix bugs in excute_cgi
+
+commit 8f513b2f79f2b4b44b0712f1dc41b1942caa06af
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Fri Dec 13 05:05:15 2013 +0000
+
+    fixed error about alloca.h when compiling in NetBSD
+
+commit 82a378b988dbad7fb77e3a9475626a1a9486093e
+Author: Luis <lbustama@stevens.edu>
+Date:   Thu Dec 12 19:11:15 2013 -0500
+
+    Added pre processor MACRO checks for OS specific macros
+    
+    Created omniosmakefile with required compier and linker flags
+    
+    http.c:
+    Fixed compiler warnign about missing sentinel for execl  call
+    	modified:   http.c
+    	modified:   main.c
+    	modified:   net.c
+    	new file:   omniosmakefile
+    	modified:   util.c
+
+commit 7a17dad7fac4cff7fee35cf3daef39a1039c33e3
+Author: kyao <kyao@stevens.edu>
+Date:   Wed Dec 11 13:17:11 2013 -0500
+
+    Add excute_cgi function to excute the cgi script,
+    	send querystring or post to cgi script
+    	write the response to client
+    	use after checkuri
+
+commit a8adea5f06126957509e556a1cd446abb3a42ba0
+Author: kyao <kyao@stevens.edu>
+Date:   Wed Dec 11 11:00:43 2013 -0500
+
+    fix the "?" condition in request path
+    	get the real uri
+
+commit e2c09d59d8348b538688e582a7bcb298288bfdf3
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Wed Dec 11 03:43:13 2013 -0500
+
+    check OS specific compiler macros for compatibility
+
+commit 6209ec36f58e5bcf427d992be8ed0ef29959c57e
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Wed Dec 11 08:47:27 2013 +0000
+
+    makefile formated for NetBSD
+
+commit 3be5afed4910791cb1b86e41b620dc2909a6b38a
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Tue Dec 10 22:20:08 2013 -0500
+
+    - Add currenttime() function to return gmt time for logging (util.c/util.h)
+    - Add writelog() function to accept a fd and logging struct and write out (util.c/util.h)
+    - Add code to httpd to check if log flag is set and open the log file (http.c)
+    - Add a struct logging to store the data for log file (util.c/util.h)
+    - Update httpd function to populate the logging struct with data (http.c)
+    - Check whether -l or -d is set. If -l pass fd, if -d pass STDOUT to writelog (http.c)
+    - TODO: Source IP is currently a placeholder. Need code in net.c to get and provide this info
+
+commit b887d762f999e0bbe3a82c3b6a1f24144f244009
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Mon Dec 9 21:07:44 2013 -0500
+
+    Added CGI test files, because Kun didn't have write permission
+
+commit 97184456569139e7c6d6f5670472ea3c60d9c7a4
+Author: kyao <kyao@stevens.edu>
+Date:   Mon Dec 9 19:59:32 2013 -0500
+
+    add querystring and check '?' for cgi in checkuri function
+
+commit 6d9d4acff7605e6adae151b30ccb72cd17e73e65
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Sun Dec 8 16:04:45 2013 -0500
+
+    changed checkuri function to check for read and execute permissions when request is for a cgi script
+
+commit 4046a45a1004916f98bb3f82c7ab00a57055dc71
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Sun Dec 8 00:23:59 2013 -0500
+
+    	modified:   util.c
+    
+        added get_socket_line function to read a line of input from the socket.
+          it supports lines terminated in "\r\n" as well as "\n"
+    
+    	modified:   util.h
+    
+        added get_socket_line function
+
+commit f7c00348d4a24aec322b25a3e6ce4e8d4437da5c
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Sun Dec 8 00:18:03 2013 -0500
+
+    	modified:   http.c
+    
+        checkuri now validateds and creates uri for cgi requests
+        it also sets a flag that indicates that the request is a cgi request and
+        not a "normal request;
+    
+     modified:   http.h
+    
+        new signature for checkuri
+    
+    	modified:   util.c
+    
+        flags_init also initializes c_dir to NULL;
+
+commit 8581a19f2260aab823b60fb9cd6ff1b50ed71805
+Author: kyao <kyao@stevens.edu>
+Date:   Tue Dec 3 17:37:36 2013 -0500
+
+    add content type and content length field in the request struct for cgi
+    add init in function init_request
+    add header processing for content type and content length in function httpd
+
+commit e5f653d144281536fee85232cbf417d81f7c3d6d
+Merge: aec8b2b 393b215
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Mon Nov 25 15:39:42 2013 -0500
+
+    Merge branch 'newbranch'
+
+commit 393b215504cefc47518d6b515e7de675ec4539d4
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Mon Nov 25 14:57:15 2013 -0500
+
+    	modified:   http.c
+    
+        added send_directory_listing() function;
+    
+        fileserver():
+          added call to send_directory_listing() function;
+
+commit dabacd51d05f8c33a109732c86ccf6bc6466b090
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Mon Nov 25 14:54:53 2013 -0500
+
+    	modified:   http.h
+    
+        added several headers to support directory listings.
+    
+            #include <libgen.h>
+            #include <dirent.h>
+            #include <sys/types.h>
+    
+        added new function declaration for send_directory_listing()
+
+commit aec8b2b66824b1afbbd7c658a311bc1dd6bf45d7
+Author: Fabian Foerg <ffoerg@stevens.edu>
+Date:   Mon Nov 25 12:00:26 2013 -0500
+
+    adapted archiving file for HW4 submission
+    
+    	modified:   tar_scp.sh
+
+commit 548134e60265a5be43cc84f687c6212bc51a8689
+Author: Fabian Foerg <ffoerg@stevens.edu>
+Date:   Mon Nov 25 11:25:35 2013 -0500
+
+    set Content-Length header field to 0 for responses without an
+     Entity-Body as required by RFC 1945
+    
+    	modified:   http.c
+
+commit d916aeef0fd4f052cf5dbe001657cebc14d0dd07
+Author: Fabian Foerg <ffoerg@stevens.edu>
+Date:   Mon Nov 25 11:13:18 2013 -0500
+
+    added remark about handling simple-requests to README
+    
+    	modified:   README
+
+commit 999394d3ba5fc175c021ef7a143b1368b7b992f9
+Author: Fabian Foerg <ffoerg@stevens.edu>
+Date:   Mon Nov 25 10:54:46 2013 -0500
+
+    re-formatted code to match style guide
+    
+    	modified:   http.c
+
+commit c04a0b80153c07996cd88a754b7aa7bb2a64cb84
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Mon Nov 25 04:58:34 2013 -0500
+
+    	modified:   ../tests/testcases
+              More testcases
+
+commit 652bf3a9461cd675eb1fdac5966efac4555b0e3d
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Mon Nov 25 04:47:54 2013 -0500
+
+    	modified:   http.c
+    
+         Added new function send_generic_page(), to send gereric page when
+         http status code is not 200
+    
+    	modified:   http.h
+    
+         Added new function send_generic_page(), to file
+    
+    	modified:   ../tests/testcases
+    
+         Added a lot more test cases
+
+commit 44400fb52d097f80f56b3dcf9954e3648cc95fa3
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sun Nov 24 21:31:16 2013 -0500
+
+    fix: respond bad request, if request does not contain two CRLF in
+      sequence
+    
+    	modified:   http.c
+
+commit ed274f0e1f4420030ca063a396485d6a1725905f
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sun Nov 24 19:32:59 2013 -0500
+
+    updated archiving script and moved README into src sub-folder.
+    
+    	renamed:    README -> src/README
+    	modified:   tar_scp.sh
+
+commit 3960aeaaf54de3cb2551ced1ddc0d553bd21dc56
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sun Nov 24 19:01:50 2013 -0500
+
+    re-formatted code for conformance with NetBSD style guide.
+    
+    	modified:   ../src/http.c
+
+commit 6c18cd4afe7265498224ccf6e8d1dd072dce4f4d
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Sun Nov 24 17:49:45 2013 -0500
+
+    	modified:   http.c
+    
+                  fixed bug introduced by my previous commit
+
+commit a99f457c7570f4d30875d8f190037f20f58685e5
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Sun Nov 24 17:21:23 2013 -0500
+
+    	modified:   http.c
+    
+                  fileserver(): Moved index.html checking when directory is
+                  requested to new function. to fix issue with headers
+                  being returned for the directory instead of index.html
+    
+                  added check_index_html() function to check for index.html if
+                  uri is a directory.
+    
+                  checkuri(): added call to check_index_html()
+    
+      modified:   http.h
+    
+                  added definition for check_index_html()
+
+commit 04d245f01c5b2e133040c0b8304670d068d5f114
+Merge: eab3bf7 2589f5c
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Sun Nov 24 16:39:55 2013 -0500
+
+    Merge branch 'master' of /home/ffoerg/git/sws
+
+commit eab3bf71d0c25169a73055b0edfdfc89d34f3cec
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Sun Nov 24 16:39:24 2013 -0500
+
+    	modified:   http.c
+    
+                  Added index.html functionality when requesting a directory.
+
+commit 2589f5c8ce496cfb31a1e5ce6a49f0f040bebb05
+Merge: 3dc001a 9012324
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sun Nov 24 15:52:32 2013 -0500
+
+    Merge branch 'master' of linux-lab.cs.stevens.edu:/home/ffoerg/git/sws
+
+commit 3dc001a7dd109b1cfb1f544381e24e4f99d913b5
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sun Nov 24 15:50:00 2013 -0500
+
+    Handle simple responses as defined in RFC 1945, i.e., just return
+    the entity-body header if the request was valid and for an existing
+    file.
+    Return nothing otherwise.
+    
+    From RFC 1945:
+    
+    "
+           HTTP-message   = Simple-Request           ; HTTP/0.9 messages
+                          | Simple-Response
+                          | Full-Request             ; HTTP/1.0 messages
+                          | Full-Response
+    
+     Simple-Request and Simple-Response do not allow the use of any header
+     information and are limited to a single request method (GET).
+    
+           Simple-Request  = "GET" SP Request-URI CRLF
+    
+           Simple-Response = [ Entity-Body ]
+    "
+    
+    	modified:   http.c
+
+commit 90123247b857413505528392d915c64030f1ff98
+Merge: d3af6cd 92f4927
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Sun Nov 24 15:28:31 2013 -0500
+
+    Merge branch 'master' of /home/ffoerg/git/sws
+
+commit 92f492739a306d3e3baab350931f18901726df0b
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sun Nov 24 15:27:03 2013 -0500
+
+    * fixed potential buffer overflow in MIME type function
+    * reformatted code
+    * adapted net.c code to support coderesp changes
+    
+    	modified:   http.c
+    	modified:   http.h
+    	modified:   net.c
+    	modified:   util.c
+
+commit d3af6cd87ee09da18ec80b270e2e59947473b38f
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Sun Nov 24 15:25:54 2013 -0500
+
+    	new file:   README
+    
+                  General usage info about testscript
+    
+    	modified:   testcases
+    
+                  Added more test cases. Checkout the last ones. They generate
+                  realy long strings which try to overflow the buffers in sws
+    
+    	modified:   testscript
+    
+                  Modified to allow command expansion - use it to generate long
+                  strings.
+
+commit cd2c542997966dc12a99cd32f795dd60d83ddb2a
+Merge: 94fa782 60fe633
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Sun Nov 24 11:09:25 2013 -0500
+
+    Merge branch 'master' of linux-lab.cs.stevens.edu:/home/ffoerg/git/sws
+
+commit 94fa782c76144454ceac01ce150edd424d4de31c
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Sun Nov 24 11:08:07 2013 -0500
+
+    - Added header param to coderesp function to handle sending headers or not. Needed for HTTP 0.9 which only sends response code (http.c)
+    - Add if/else in httpd to either call coderesp with headers or without as needed (http.c)
+    - Update header to change function prototype for coderesp for extra int flag (http.h)
+
+commit 60fe63397031c194ef561c6d1f077c378a838b48
+Author: kyao <kyao@stevens.edu>
+Date:   Sun Nov 24 10:41:13 2013 -0500
+
+    fix bug in mime_type
+
+commit fb7894234ab7ba900ea77d0e4fa24dc541d50f1c
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Sun Nov 24 09:45:35 2013 -0500
+
+    - Temporary fixed syntax/naming issues in util.c to allow compile (util.c)
+    - Updated httpd to fix handling of versions not supported (http.c)
+
+commit 5ef806c11e2f2f88c6118a6ad79acc88874cda38
+Merge: 5b01a19 91b7b37
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Sun Nov 24 09:32:08 2013 -0500
+
+    Merge branch 'master' of linux-lab.cs.stevens.edu:/home/ffoerg/git/sws
+
+commit 5b01a193158ae691bade891cc27bdb3439773b3f
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Sun Nov 24 09:30:22 2013 -0500
+
+    - Updated httpd to support simple requests - HTTP 0.9 (http.c)
+    - Discard HEAD and POST requests if HTTP 0.9, since only supports GET (http.c)
+    - Commented out code for POST HTTP 1.0 requests since not ready for HW4 (http.c)
+    - Requests with 2 parameters are assumed to HTTP 0.9 per RFC 1945 (http.c)
+
+commit 91b7b377501ef41fe84de738de86c43148cac387
+Author: kyao <kyao@stevens.edu>
+Date:   Sat Nov 23 22:28:00 2013 -0500
+
+    modify the mime_type function, add error detectio.
+
+commit 42ccf22a7f7d8ff4ecc5fca1567fffe5b6747b26
+Merge: cf36eae dff542a
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Sat Nov 23 16:51:29 2013 -0500
+
+    Merge branch 'master' of linux-lab.cs.stevens.edu:/home/ffoerg/git/sws
+
+commit cf36eaec591b2ae606c5af4fb820ee4e27d245ee
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Sat Nov 23 16:50:17 2013 -0500
+
+    - For POST - server will currently respond with 501 - not implemented (http.c)
+    - Removed temporary support for HTTP 1.1 per man page - browsers like Chrome will get a 505 since they request HTTP 1.1 (http.c)
+
+commit dff542a810b45ef954aac1a2a9fb00a6400f4b54
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Nov 23 16:45:39 2013 -0500
+
+    augmented comments
+    
+    	modified:   util.c
+
+commit d90d5a26a1cabd5d2f423d411d08c36de6a986af
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Sat Nov 23 14:37:29 2013 -0500
+
+    Modified test script to make it easier to identify the request and the output
+    
+    Added 1 more testcases
+    
+    	modified:   testcases
+    	modified:   testscript
+
+commit 6ce9e85e3e149b708ebd7703471a7f1d5456f910
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Nov 23 14:29:35 2013 -0500
+
+    allocate small buffers on stack rather than heap
+    
+    	modified:   http.c
+
+commit 070c1a4bfb499c79b8c90457479b3fb4be489e90
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Nov 23 14:18:18 2013 -0500
+
+     * augmented incomplete comment
+     * removed names from types in function declarations, as suggested
+    in the NetBSD style guide
+    
+    	modified:   http.h
+    	modified:   util.c
+
+commit 235b09ff4830a2cc2603d824364c179d56f8a82e
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Nov 23 14:04:21 2013 -0500
+
+    refactored code:
+     * added missing comments
+     * made sure the functions in the *.c files have comments
+    
+    	modified:   http.c
+    	modified:   http.h
+
+commit b907767b4e4758dec423e54382a9b3d3242dda4c
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Nov 23 13:41:34 2013 -0500
+
+    added test cases for If-Modified-Since request header field
+    checks if date formats from RFC 1945 are parsed properly
+    
+    	modified:   testcases
+
+commit 578e34550ce1fa5221e7e3a179fa52e2ff9c2eaf
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Nov 23 13:37:55 2013 -0500
+
+    added test case for HTTP/0.9
+    
+    	modified:   testcases
+
+commit f3199520ff65d7ded4c564180fb96eb0f99335eb
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Nov 23 13:31:43 2013 -0500
+
+    replaced response status code integers with names from enum
+    
+    	modified:   http.c
+
+commit 069e42fe18952d6d4168daac06a4b42932facceb
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Nov 23 13:25:47 2013 -0500
+
+    cleaned up time to HTTP date conversion routine:
+      writes to given buffer and does not malloc memory which needs to
+      be freed in calling function
+    
+    	modified:   http.c
+    	modified:   util.c
+    	modified:   util.h
+
+commit b6a32d80970d301a8b3d56e45a756bde86fc4acc
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Nov 23 13:09:19 2013 -0500
+
+    refactored code for MIME type handling.
+    
+    	modified:   http.c
+    	modified:   util.c
+    	modified:   util.h
+
+commit 3ea4196ae56f04456c1c734a64c3845913d8a54e
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Nov 23 13:04:19 2013 -0500
+
+    removed obsolete case from signal handler
+    
+    	modified:   util.c
+
+commit 5acd02c1d0979d44e3cd303aa9efaefdf72aa04b
+Author: Fabian Foerg <ffoerg@stevens.edu>
+Date:   Fri Nov 22 20:33:13 2013 -0500
+
+    removed obsolete notes and obsolete response flag
+    
+    	modified:   http.c
+    	modified:   http.h
+
+commit 5400f20fcc2202251c569e30131e64c733c81442
+Author: Fabian Foerg <ffoerg@stevens.edu>
+Date:   Fri Nov 22 20:19:50 2013 -0500
+
+    implemented If-Modified-Since request header field parsing
+    added and called a method which initializes the request struct
+    
+    	modified:   http.c
+    	modified:   http.h
+    	modified:   util.c
+    	modified:   util.h
+
+commit 165228e375ca9ed802f488e5dee75e085767bfe9
+Author: Fabian Foerg <ffoerg@stevens.edu>
+Date:   Fri Nov 22 18:14:07 2013 -0500
+
+    cleaned up code formatting
+    
+    	modified:   http.c
+
+commit 7c1e336f35a6529dda69ffee29b6695c6194fc72
+Author: Fabian Foerg <ffoerg@stevens.edu>
+Date:   Fri Nov 22 18:11:05 2013 -0500
+
+    fixed handling of client requests:
+      read from socket until two CRLF in sequence are received.
+      timeout, if this sequence is not received within timeout time.
+    
+    	modified:   http.c
+    	modified:   net.c
+    	modified:   net.h
+
+commit 6faa2fe7368491ffe31d58f928ee9bca93def8da
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Fri Nov 22 10:26:29 2013 -0500
+
+    - Changed string tokenizer code to handle HTTP headers - working (http.c)
+    - Tested with netcat and Chrome browser - working (http.c)
+    - Added printfs to print out HTTP request and headers with debug flag (http.c)
+    - When If-Modified-Since is detected, string is stored in struct (http.c)
+    - All other HTTP headers are ignored (http.c)
+    - Updated index.html in tests to reference an image (index.html)
+    - Added geronimo_iv.png to tests to test images (geronimo_iv.png)
+    - TODO: Currently does not work with telnet. Review how to make compatible for telnet while maintaining compatibility with nc/browsers
+
+commit f15c356bf8cac1a3e992174421156a816b129d85
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Fri Nov 22 01:31:37 2013 -0500
+
+    http.h:
+    
+        changed checkuri definition to take a request structure pointer instead of
+        just the requested path.
+    
+        int
+        checkuri(struct request * request, int * uri_status,
+                 struct flags * flag, char * realpath)
+    
+    http.c:
+    
+        httpd():
+            changed all references to the old format of checkuri to the new format.
+    
+        checkuri():
+            Validation is now performed using access(2). Validation
+            is performed based on the request method. GET - read, POST - write.
+
+commit cd7d2c3d3a0460f5e4c373e473c07ba1d5335097
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Thu Nov 21 03:14:06 2013 -0500
+
+    http.h:
+    
+        added header pwd.h
+    
+    http.c:
+    
+        checkuri() now validates uri requests in the form /~username/
+
+commit c5df0fc7d95a4cb0299db5fb881d0e1ed23548f8
+Author: Fabian Foerg <ffoerg@stevens.edu>
+Date:   Mon Nov 18 22:03:24 2013 -0500
+
+    implemented MIME-type handling using libmagic
+    
+    	modified:   Makefile
+    	modified:   http.c
+    	modified:   util.c
+
+commit 19c9b3f3dc91c96037f451e046c2faed427384c2
+Merge: 1660009 31cf4df
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Mon Nov 18 20:30:58 2013 -0500
+
+    Merge branch 'master' of linux-lab.cs.stevens.edu:/home/ffoerg/git/sws
+
+commit 16600095bce61a73c682f824e88dc3d5735ed70c
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Mon Nov 18 20:30:28 2013 -0500
+
+    - Return Code 501 (not supported) if method is not GET, HEAD or POST (http.c)
+
+commit 31cf4df19e3a031eed07cec04a09187bd070d22c
+Merge: 2ee634d 299490f
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Mon Nov 18 20:18:33 2013 -0500
+
+    Merge branch 'master' of /home/ffoerg/git/sws
+
+commit 2ee634d96cad3e8f9f9de02bbabf3e03859cd4d2
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Mon Nov 18 20:17:34 2013 -0500
+
+    Mac OS X compatibility!!!!!   Warns on daemon being deprecated, but usable.
+
+commit 299490fabac8788f353b7c8f954b807b1b9d1118
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Mon Nov 18 20:10:40 2013 -0500
+
+    - Updated code to handle tokenizing of header so can handle nc and browsers (http.c)
+    - Commented out code to handle http headers for now. Need to revisit. TODO (http.c)
+    - Support HTTP/0.9. TODO - need to verify RFC for header request and tokens (http.c)
+    - Do not send headers when request is HTTP/0.9 just file contents (http.c)
+    - Added debug printouts of request line and parameters to help troubleshooting (http.c)
+
+commit f423b2ac0f5e3553e80719dc8b75e493297bafc1
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Mon Nov 18 13:30:26 2013 -0500
+
+    http.c
+    
+      Created preliminary version of fileserver function. For now it only handles
+      files. Directory listing pending.
+    
+      httpd():
+    
+      added call to fileserver function when request method is GET and http status
+      is 200/ OK
+    
+      coderesp_headers():
+    
+      added 1 more call to write buff to write an empty line CRLF at the end of the
+      header response. (This seems to be standard after checking google.com,
+      facebook.com and yahoo.com) Will verify with RFC 1945.
+
+commit 4ab125ebb568ec6d40788204fc150d460b6a17c3
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Mon Nov 18 12:44:15 2013 -0500
+
+    http.h:
+    
+      In struct request:
+    
+        added #include <limits.h>
+        changed path from "char * path" to "char path[PATH_MAX + 1]" for easier use.
+
+commit 1464f712f082a21e8e4a2e91d186e2fcf2fe3fe1
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Sun Nov 17 20:21:22 2013 -0500
+
+    - Modified the checkuri function to add a char* parameter to pass back the validated real path (http.c/http.h)
+    - Modified time and content length now return values based on the file requested (http.c)
+    - If a directory is specified, it currently stats the dir - this will change to index.html or a listing (http.c)
+
+commit 2e83fec2d5d2eca04545cddb0dfde8bc39d50b39
+Merge: b7144fc 2edd2de
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sun Nov 17 18:49:57 2013 -0500
+
+    Commented out function call for MIME type function, as this function
+    currently segfaults, if the path argument has no . in its name.
+    Added function call that sets the entity body header fields.
+    
+    Merge branch 'master' of linux-lab.cs.stevens.edu:/home/ffoerg/git/sws
+    
+    Conflicts:
+    	src/http.c
+    
+    	modified:   http.c
+
+commit b7144fc464c74e8876dbc40e4a9c3f5cada469e0
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sun Nov 17 18:24:11 2013 -0500
+
+    added buffer length parameter to MIME type function
+    added function to set entity body headers
+    
+    	modified:   http.c
+    	modified:   http.h
+    	modified:   util.c
+    	modified:   util.h
+
+commit 2edd2def18e85a1e1e67a1e509a971bc571064d6
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Sun Nov 17 17:45:00 2013 -0500
+
+    - Small edit to check for both \r and \n to process request (http.c)
+
+commit 9fbb5c4c1a83dffd419a45ebbb82835b28ca30e1
+Merge: 1d6a872 5708a6c
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Sun Nov 17 15:44:21 2013 -0500
+
+    Merge branch 'master' of linux-lab.cs.stevens.edu:/home/ffoerg/git/sws
+
+commit 1d6a872a7cde678eb4bd5cb23153ebbf095e9cb7
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Sun Nov 17 15:39:59 2013 -0500
+
+    - Added support for HTTP headers by looping until carriage return (http.c)
+    - Check for 'If-Modified-Since' HTTP header and set flag/string accordingly (http.c)
+    - All other headers are ignored/skipped - no validation on them yet (http.c)
+    - After max  HTTP headers are entered (valid or not) the server exits with 400 code (http.c)
+    - Set the HTTP major version to 1 and minor to 0 for initial support (http.c)
+
+commit 5708a6c5b1e91ac5891abbec533c49a506125e64
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sun Nov 17 14:27:06 2013 -0500
+
+    updated verification of CGI dir
+    
+    	modified:   main.c
+
+commit 6066527bbfba9c7fad6cb1396495fab292f7c6cd
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sun Nov 17 14:03:59 2013 -0500
+
+    Changed time to string conversion routine such that it takes a
+    time_t rather than a struct tm argument.
+    This allows the direct conversion from the times in the stat(2)
+    data structure, since they have type time_t.
+    
+    	modified:   http.c
+    	modified:   http.h
+    	modified:   util.c
+    	modified:   util.h
+
+commit 1182c2f8d2414dcf83597088ec754824655d57a0
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sun Nov 17 13:38:00 2013 -0500
+
+    fixed compiler warnings related to mime_content_type and
+    re-formatted code.
+    
+    	modified:   util.c
+    	modified:   util.h
+
+commit e0e2802ccaf6774197a2e654a77ea92e50ba6f6b
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sun Nov 17 13:24:40 2013 -0500
+
+    replaced status code number in code with name from response enum
+    
+    	modified:   http.c
+
+commit 47bc7944d7daf6a3493d0ef63c797fbe22d746bf
+Author: kyao <kyao@stevens.edu>
+Date:   Sun Nov 17 13:01:09 2013 -0500
+
+    I have add mime_content_type function in util.c and util.h
+    It parse the file name and find out it's mime content type.
+
+commit 38c9572a41944904756bd3004512928089a0e3dd
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sun Nov 17 12:38:47 2013 -0500
+
+    support response status "Forbidden"
+    support response status "Not Found"
+    
+    	modified:   http.c
+
+commit 8babc02e9f5c1baeea8ccb51be37713b5395e9df
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sun Nov 17 12:16:26 2013 -0500
+
+    verify directory parameter
+    
+    	modified:   ../TODO
+    	modified:   main.c
+    	modified:   util.c
+    	modified:   util.h
+
+commit 5640644c1200052557a09d306190fbd4db68918b
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Sun Nov 17 09:58:52 2013 -0500
+
+    - Updated TODO with outstanding items as of 11/17 10AM EST
+
+commit 5ba8825b3d69bb8e597acb0144f818a2430fdd87
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Sun Nov 17 09:39:43 2013 -0500
+
+    - Increased client timeout from 10 to 20 seconds for purposes of testing (net.c)
+    - Utilize the response function to send back proper HTTP response (http.c)
+    - Utilize the checkuri function to validate file request (http.c)
+    - Check HTTP version against supported version (http.c)
+    - Added read for 2nd CR before sending response to client (http.c)
+
+commit 239da3f2cc9807e74e209347cd61b9291b190b13
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Sun Nov 17 05:15:41 2013 -0500
+
+    created testscript and testcases files in under the tests directory.
+    
+    testscript:
+    ----------
+    
+    USAGE:
+    
+    tests/testscript t_host t_port [test_cases]
+    
+    DETAILS:
+    
+    test_cases - contains a series of http requests to be made to the
+                 target server. Each request ends with a blank line
+    
+                 GET / HTTP/1.0
+                 req-header1
+                 req-header2
+                 ...
+                 req-headern
+                 BLANK_LINE
+    
+    DEFAULTS:
+    
+    test_cases=./testcases
+    
+    REQUIRED:
+    
+    t_host
+    t_port
+
+commit 6249a08dc0afc3032b5e09954a9d0d1aee3c6dce
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Nov 16 20:09:28 2013 -0500
+
+    response status code: replaced number constants with names from enum
+
+commit 6da779011b8f59249929360a3b246c0e8998450f
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Nov 16 19:55:18 2013 -0500
+
+    implemented handling of client timeout
+    added enum for response codes
+    
+    	modified:   http.c
+    	modified:   http.h
+    	modified:   net.c
+
+commit db341543cbd81b725fa93a26adac173edcb99fa7
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Nov 16 18:16:01 2013 -0500
+
+    validate passed -i address and -p port number.
+    made sure by checking output of `ss -li` that the server binds to
+    the correct addresses and port
+
+commit 5958c57015024b731a8d3e04bbdd94caeac66cdb
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Nov 16 17:01:32 2013 -0500
+
+    updated TODO and removed obsolete signature
+
+commit e6af9d69ca54eec1f55ebe6db927a9baedef6add
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Nov 16 16:08:28 2013 -0500
+
+    implemented response handling
+    
+    	modified:   http.c
+    	modified:   http.h
+
+commit ee1fe99d258bbe69c3b322f43f1efba7616c0cd3
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Nov 16 16:00:12 2013 -0500
+
+    changed signature of time conversion routine: gets pointer rather than
+    struct copy.
+    added function that is able to build a buffer.
+    
+    	modified:   util.c
+    	modified:   util.h
+
+commit cae1a90354b07d91204f94063545a760a2975076
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Nov 16 13:05:05 2013 -0500
+
+    added utility function for time conversion.
+    converts struct tm to string in GMT format.
+    
+    	modified:   util.c
+    	modified:   util.h
+
+commit d8c932719c885742aa6200051e0e9279949e0444
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Nov 16 11:41:12 2013 -0500
+
+    put expressions in conditional statements (if) in parentheses
+    to prevent nasty bugs
+    
+    	modified:   src/http.c
+
+commit d9181fbdc13f95f923cf0a450509462448e04446
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Nov 16 11:36:59 2013 -0500
+
+    fixed indentation and removed trailing white space in
+    
+    	modified:   src/http.h
+
+commit 0050d124c8b560e0423e854cdc4e914ca776b7a8
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Nov 16 11:36:16 2013 -0500
+
+    fixed indentation and trailing white spaces in
+    
+    	modified:   src/net.c
+
+commit 32f204105705665b67adc87eed8b658fd79ab8ca
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Sat Nov 16 11:32:28 2013 -0500
+
+    fixed indentation (use two spaces per block level) in
+    
+    	modified:   src/http.c
+
+commit e04c77d9075d38201889db3374e3e63593139c1e
+Merge: 674fd68 3a3f40a
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Fri Nov 15 22:09:23 2013 -0500
+
+    Merge branch 'master' of stevens:~ffoerg/git/sws
+
+commit 674fd68f1f899c27f5da3c408e1f4b0e1047f11b
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Fri Nov 15 22:05:53 2013 -0500
+
+    http.c:
+    
+      checkuir():
+    
+          changed to correctly identify the requested uri as relative to the
+          server's root directory. Still need to add cgi and ~<user> directory
+          compatibility
+
+commit 3a3f40ab0152abf183eb7ac859cf67160f04b48f
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Fri Nov 15 21:52:53 2013 -0500
+
+    - Fixed Daemon call in net.c so nochdir and noclose are 1. Was set to 0 and was causing problems
+    - Added initial code to read input from client and tokenize in http.c
+    	- Will check if 3 tokens are entered and print error if not
+    	- Checks the first token (method) against GET/HEAD/POST for validity
+    - Validated 2-way communication between client and server functions for future work
+
+commit 12ec81cad68a31e7760d3bb8fc376ad2e111a5ae
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Fri Nov 15 19:13:44 2013 -0500
+
+    - Changed comment formating to use /*..*/ standard
+
+commit 2bbf019713b9d6a8112560e08f4cd2719348345c
+Merge: 983dde6 9023320
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Fri Nov 15 02:13:23 2013 -0500
+
+    Merge branch 'master' of stevens:~ffoerg/git/sws
+
+commit 983dde6fd3b065120e2e1d0b0128b7660be67418
+Author: Luis Bustamante <lbustama@stevens.edu>
+Date:   Fri Nov 15 02:11:47 2013 -0500
+
+    http.c:
+    
+      changed all tabs to spaces.
+                                                                                            checkuri():
+    
+          Modified to allow for NULL pointer to be passed in place of uri_status,
+          if it's not desired by the user.
+    
+          Changed function return value.  Now it returns 0 if the uri exists and is
+          within the given user directory
+    
+    http.h:
+    
+      Additional comments for checkuri()
+
+commit 902332060124afd4252a492877ca0fc0c1866f87
+Author: Fabian Foerg <ffoerg@stevens.edu>
+Date:   Thu Nov 14 17:55:58 2013 -0500
+
+    split up version number into major and minor part
+
+commit 01dbee77b059512abd2a8fbb6815fb293164a97e
+Author: Luis <Luis@macbookpro.home>
+Date:   Thu Nov 14 03:00:57 2013 -0500
+
+    modified:	http.c
+    
+    fileserver function:
+    	For now it only checks if the path requested is valid
+    
+    	TODO: Build Header. Serve File.  CGI support
+    
+    checkuri function:
+    
+    	Added definition. For now it checks if the path is valid and if access is
+    	permited.
+    
+    	TODO: Add CGI directory checking.
+
+commit 9052795cd0baab5c924047230ebd778303cc033d
+Author: Luis <Luis@macbookpro.home>
+Date:   Thu Nov 14 02:57:19 2013 -0500
+
+    modified: http.h
+    
+    changed GET_M, POST_M and HEAD_M to REQUEST_METHOD_GET, REQUEST_METHOD_POST, etc.
+    
+    added function prototype for checkuri to validate the path requested:
+    
+    	checkuri(const char * path, int * i, struct flags * flag);
+
+commit 41c1f1b5b71eb80c75883bb826e0b0cb6faee6e8
+Author: Luis <Luis@macbookpro.home>
+Date:   Wed Nov 13 01:28:26 2013 -0500
+
+    Updated comments. See previous update
+
+commit 2fd8a2394b39c5f5e9cfdd85c2ce9356d934a99a
+Author: Luis <Luis@macbookpro.home>
+Date:   Wed Nov 13 01:14:06 2013 -0500
+
+    1) Added definitions for GET_M, HEAD_M and POST_M to avoid "magic numbers"
+       see struct request.method
+    
+     #define GET_M  1
+     #define HEAD_M 2
+     #define POST_M 3
+    
+    2) Added request structure containing relevant tokens from the http request
+    
+    struct request
+    {
+        const char * path;    /* requested resource URI */
+    	int method;           /* GET_M, HEAD_M and POST_M */
+    	int f_if_modified_since; /*couldn't think of a better name*/
+    	const char * if_date;
+    	float version;
+    }
+    
+    NOTES:  const char * if_date could be changed to  "struct tm if_date"
+    		if desired, which would be updated after converting the date in the
+    		request to a vaild Unix time format. struct tm is defined in "time.h"
+    
+    		format of response will vary depending on http protocol version
+    		Simple-response for http 0.9 and Full-Response for 1.0
+    
+    }
+    
+    3) Changed the fileserver function prototype
+    
+    from:
+    	int
+    	fileserver(const char * pathname, int socket, struct flags * flag);
+    
+    to:
+    	int
+    	fileserver(struct request * request, int socket, struct flags * flag);
+
+commit c551100337ff26b2b553607048fc4aad5d3e81c5
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Tue Nov 12 22:26:46 2013 -0500
+
+    pass data structure containing user-provided flags to http functions
+    
+    	modified:   http.c
+    	modified:   http.h
+    	modified:   net.c
+
+commit ecd49804dfc3d8429eaad94f61b43a45053ef53f
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Tue Nov 12 22:17:37 2013 -0500
+
+    changed network code to call httpd function which handles client
+    requests
+    expanded comments in http.h and formatted them in doxygen style
+    
+    	modified:   ../TODO
+    	modified:   http.c
+    	modified:   http.h
+    	modified:   net.c
+
+commit e15d1684f3ace3679c46421853acce3209ff6313
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Tue Nov 12 21:44:32 2013 -0500
+
+    removed custom daemon implementation
+
+commit 1b59176e081db490483b9f4a551277d5096491b5
+Author: Fabian Foerg <ffoerg@stevens.edu>
+Date:   Tue Nov 12 19:18:55 2013 -0500
+
+    removed non-ASCII characters in files
+
+commit db5c90f47ae4f7d8b7c6f35e8300df1260592cd6
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Tue Nov 12 18:58:57 2013 -0500
+
+    - Added http.c and http.h file to git rep
+    - Created initial function prototypes in http.h for review
+    - Updated Makefile to include http in all
+
+commit 49524bbb17707a060f1ef3265986ae463ed69922
+Author: Tejas <tnadkarn@stevens.edu>
+Date:   Tue Nov 12 18:33:05 2013 -0500
+
+    - Updated Makefile to support 'count' and configurable variables
+    - Updated TODO
+
+commit b54bcc969e2df1eac5913a3811492a83f1656185
+Author: Fabian Foerg <me@ffoerg.de>
+Date:   Mon Nov 11 21:59:08 2013 -0500
+
+    initial commit:
+    code from HW3 plus support for IPv6

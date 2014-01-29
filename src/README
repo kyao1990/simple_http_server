@@ -1,0 +1,23 @@
+==== Build ====
+
+To build the code, run 'make -f Makefile.{platform}' on a command-line 
+in the folder where the file `src` folder.
+
+  make -f Makefile.Linux
+  make -f Makefile.Omnios
+  make -f Makefile.Netbsd
+
+The resulting binary is called 'sws'.
+
+==== Run ====
+
+Run the sws in debugging mode (command-line option -d) to see output on stdout.
+
+==== Address Logging ====
+
+The corresponding IPv6 address of connected IPv4 clients is logged to have a
+uniform logging format, if the server listens on all available addresses.
+
+If the server listens on an IPv4 address only, then we log client addresses
+in the IPv4 format.
+

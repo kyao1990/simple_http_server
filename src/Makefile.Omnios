@@ -1,0 +1,30 @@
+#Makefile - Project Team Geronimo
+
+CC = gcc
+CFLAGS = -g -Wall -pedantic -I /opt/local/include
+OBJECTS = main.o net.o util.o http.o
+INCFLAGS = 
+LIBS = 
+
+LDFLAGS = -L /opt/local/lib/ -Wl,-rpath,/opt/local/lib/,-lmagic,-lsocket,-lnsl
+
+all: sws
+
+sws: $(OBJECTS)
+	$(CC) -o sws $(OBJECTS) $(LDFLAGS) $(LIBS)
+
+.SUFFIXES:
+.SUFFIXES:	.c .o
+
+.c.o :
+	$(CC) -o $@ -c $(CFLAGS) $< $(INCFLAGS)
+
+count:
+	wc *.c *.h
+
+clean:
+	rm -f *.o
+
+.PHONY: all
+.PHONY: count
+.PHONY: clean
